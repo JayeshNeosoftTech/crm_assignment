@@ -11,23 +11,54 @@
     <div class="main-layout">
         <aside class="sidebar-wrp">
             <div class="sidebar-mainMenu">
-                <ul>
-                    <li>Dashboard</li>
-                    <li>Home</li>
+                <a href="#" class="logo-wrp">
+                    <img class="logo" src="./assets/img/recruitCRM_logo_blue.svg" alt="Logo">
+                </a>
+
+                <ul class="mainMenu-list">
+                    <li class="mainMenu-listItem" title="Dashboard">
+                        <img class="mainMenu-listItem-icon" src="./assets/img/icons/dashboard.svg" alt="Dashboard">
+                    </li>
+                    <li class="mainMenu-listItem" title="Tasks">
+                        <img class="mainMenu-listItem-icon" src="./assets/img/icons/task.svg" alt="Tasks">
+                    </li>
                 </ul>
 
                 <ul class="sidebar-profileMenu">
-                    <li>
-
+                    <li class="sidebar-profileMenu-item" title="Setting">
+                        <img src="./assets/img/icons/setting.svg" alt="Setting">
+                    </li>
+                    <li class="sidebar-profileMenu-item" title="Account">
+                        <img src="./assets/img/icons/user.svg" alt="User">
                     </li>
                 </ul>
             </div>
 
             <div class="sidebar-subMenu">
-                <ul>
-                    <li>Dashboard</li>
-                    <li>Home</li>
-                </ul>
+                <div class="sidebar-subMenu-titleWrp">
+                    <h4 class="sidebar-subMenu-title">Dashboard</h4>
+
+                    <div class="openSubmenu" id="subMenu-btn">
+                        <img src="./assets/img/icons/arrow.svg" alt="">
+                    </div>
+                </div>
+                <div class="searchbar-box-wrp">
+                    <input class="searchbar-box" type="text" name="" id="" placeholder="Search...">
+                </div>
+
+                <div class="sidebar-subMenu-listWrp dashboard-submenu">
+                    <h5 class="sidebar-subMenu-listTitle">Dashboard Types</h5>
+                    <ul class="sidebar-subMenu-list">
+                        <li class="sidebar-subMenu-listItem">
+                            <img src="./assets/img/icons/overview.svg" alt="Overview">
+                            <span class="sidebar-subMenu-listItemName">Overview</span>
+                        </li>
+                        <li class="sidebar-subMenu-listItem">
+                            <img src="./assets/img/icons/executive_summary.svg" alt="Executive summary">
+                            <span class="sidebar-subMenu-listItemName">Executive Summary</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </aside>
         <div class="right-content">
