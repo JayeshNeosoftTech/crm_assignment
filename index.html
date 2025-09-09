@@ -16,7 +16,7 @@
                 </a>
 
                 <ul class="mainMenu-list">
-                    <li class="mainMenu-listItem" title="Dashboard">
+                    <li class="mainMenu-listItem active" title="Dashboard">
                         <img class="mainMenu-listItem-icon" src="./assets/img/icons/dashboard.svg" alt="Dashboard">
                     </li>
                     <li class="mainMenu-listItem" title="Tasks">
@@ -35,27 +35,113 @@
             </div>
 
             <div class="sidebar-subMenu">
-                <div class="sidebar-subMenu-titleWrp">
-                    <h4 class="sidebar-subMenu-title">Dashboard</h4>
-
-                    <div class="openSubmenu" id="subMenu-btn">
-                        <img src="./assets/img/icons/arrow.svg" alt="">
+                <div class="sidebar-subMenu-stickyContent">
+                    <div class="sidebar-subMenu-titleWrp">
+                        <h4 class="sidebar-subMenu-title">Dashboard</h4>
+    
+                        <div class="openSubmenu" id="subMenu-btn">
+                            <img src="./assets/img/icons/arrow.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="searchbar-box-wrp">
+                        <input class="searchbar-box" type="text" name="" id="" placeholder="Search...">
                     </div>
                 </div>
-                <div class="searchbar-box-wrp">
-                    <input class="searchbar-box" type="text" name="" id="" placeholder="Search...">
-                </div>
 
-                <div class="sidebar-subMenu-listWrp dashboard-submenu">
+                <div class="sidebar-subMenu-listWrp dashboard-submenu active">
                     <h5 class="sidebar-subMenu-listTitle">Dashboard Types</h5>
                     <ul class="sidebar-subMenu-list">
-                        <li class="sidebar-subMenu-listItem">
-                            <img src="./assets/img/icons/overview.svg" alt="Overview">
-                            <span class="sidebar-subMenu-listItemName">Overview</span>
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/overview.svg" alt="Overview">
+                                <span class="sidebar-subMenu-listItemName">Overview</span>
+                            </span>
                         </li>
-                        <li class="sidebar-subMenu-listItem">
-                            <img src="./assets/img/icons/executive_summary.svg" alt="Executive summary">
-                            <span class="sidebar-subMenu-listItemName">Executive Summary</span>
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/executive_summary.svg" alt="Executive summary">
+                                <span class="sidebar-subMenu-listItemName">Executive Summary</span>
+    
+                                <button type="button" class="dropdown-btn">
+                                    <img class="dropdown-btn-icon" src="./assets/img/icons/arrow.svg" alt="arrow">
+                                </button>
+                            </span>
+                            <ul class="sidebar-subMenu-Sublist">
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Revenue Overview</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Key Perforamce Indication</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Strategic Goals Progress</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Department Highlights</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/operation_dashboard.svg" alt="Executive summary">
+                                <span class="sidebar-subMenu-listItemName">Operations Dashboard</span>
+    
+                                <button type="button" class="dropdown-btn">
+                                    <img class="dropdown-btn-icon" src="./assets/img/icons/arrow.svg" alt="arrow">
+                                </button>
+                            </span>
+                            <ul class="sidebar-subMenu-Sublist">
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Project Timeline</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Resource Allocation</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">team performance</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Capacity planning</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-subMenu-listWrp tasks-submenu">
+                    <h5 class="sidebar-subMenu-listTitle">Quick Actions</h5>
+                    <ul class="sidebar-subMenu-list">
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/add.svg" alt="add">
+                                <span class="sidebar-subMenu-listItemName">New task</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/filter.svg" alt="filter">
+                                <span class="sidebar-subMenu-listItemName">Filter task</span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <h5 class="sidebar-subMenu-listTitle">My Tasks</h5>
+                    <ul class="sidebar-subMenu-list">
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/duration.svg" alt="duration">
+                                <span class="sidebar-subMenu-listItemName">Due today</span>
+    
+                                <button type="button" class="dropdown-btn">
+                                    <img class="dropdown-btn-icon" src="./assets/img/icons/arrow.svg" alt="arrow">
+                                </button>
+                            </span>
+                            <ul class="sidebar-subMenu-Sublist">
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Review design mockups</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Update documentation</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Test new feature</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <span class="sidebar-subMenu-listItem">
+                                <img src="./assets/img/icons/completed.svg" alt="completed">
+                                <span class="sidebar-subMenu-listItemName">Completed</span>
+    
+                                <button type="button" class="dropdown-btn">
+                                    <img class="dropdown-btn-icon" src="./assets/img/icons/arrow.svg" alt="arrow">
+                                </button>
+                            </span>
+                            <ul class="sidebar-subMenu-Sublist">
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Fixed login bug</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Updated dependencies</a></li>
+                                <li class="sidebar-subMenu-SublistItem"><a href="#">Code review completed</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -71,5 +157,7 @@
             </main>
         </div>
     </div>
+
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

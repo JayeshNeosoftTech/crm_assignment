@@ -27,6 +27,12 @@ body.dark{
     color: #FFFFFF;
 }
 
+button:focus, 
+input:focus,
+textarea:focus{
+    outline: none;
+}
+
 .main-layout{
     min-height: 100vh;
     display: flex;
@@ -77,6 +83,10 @@ body.dark{
     padding: 10px 10px;
 }
 
+.sidebar-wrp .mainMenu-listItem{
+    margin-bottom: 5px;
+}
+
 .sidebar-wrp .mainMenu-listItem,
 .sidebar-wrp .sidebar-profileMenu-item{
     padding: 10px 10px;
@@ -89,8 +99,7 @@ body.dark{
 }
 .sidebar-wrp .mainMenu-listItem:hover,
 .sidebar-wrp .mainMenu-listItem.active,
-.sidebar-subMenu-listItem:hover,
-.sidebar-subMenu-listItem.active{
+.sidebar-subMenu-listItem:hover{
     background-color: #FFFFFF;
     box-shadow: 0 0px 10px #d2d2d2;
 }
@@ -100,7 +109,8 @@ body.dark{
     width: 20px;
     height: 20px;
 }
-.sidebar-wrp .mainMenu-listItem:hover .mainMenu-listItem-icon{
+.sidebar-wrp .mainMenu-listItem:hover .mainMenu-listItem-icon,
+.sidebar-wrp .mainMenu-listItem.active .mainMenu-listItem-icon{
     filter: brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(17%) hue-rotate(69deg) brightness(100%) contrast(100%);
 }
 /* Main menu style end */
@@ -121,29 +131,56 @@ body.dark{
 
 /* Sidebar submenu style start */
 .sidebar-subMenu{
-    padding: 20px 15px;
+    padding: 0 0 20px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 65px;
+    transition: all 0.3s linear;
+}
+.sidebar-subMenu.open{
+    width: 250px;
+}
+
+.sidebar-subMenu-stickyContent{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #FFFFFF;
+    padding: 20px 15px 0 15px;
 }
 
 .sidebar-subMenu-titleWrp{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 5px;
     flex-wrap: nowrap;
     padding: 5px 0 8px 0;
+}
+.sidebar-subMenu.open .sidebar-subMenu-titleWrp{
+    justify-content: space-between;
 }
 
 .sidebar-subMenu-title{
     font-size: 1.6rem;
     text-transform: capitalize;
     color: #000000;
+    display: none;
+    transition: all 0.3s linear;
+}
+
+.sidebar-subMenu.open .sidebar-subMenu-title{
+    display: block;
 }
 
 .openSubmenu{
-    padding: 5px;
-    border-radius: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
+}
+.sidebar-subMenu.open .openSubmenu img{
+    transform: rotate(180deg);
 }
 .openSubmenu:hover{
     background-color: #FFFFFF;
@@ -152,7 +189,8 @@ body.dark{
 .openSubmenu img{
     width: 10px;
     height: 10px;
-    filter: brightness(0) saturate(100%) invert(74%) sepia(41%) saturate(4%) hue-rotate(123deg) brightness(91%) contrast(84%);
+    filter: brightness(0) saturate(100%) invert(29%) sepia(14%) saturate(6%) hue-rotate(31deg) brightness(105%) contrast(93%);
+    transition: all 0.3s linear;
 }
 .openSubmenu:hover img{
     filter: brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(17%) hue-rotate(69deg) brightness(100%) contrast(100%);
@@ -161,21 +199,39 @@ body.dark{
 .searchbar-box-wrp{
     margin-top: 14px;
 }
-.searchbar-box{
-    min-width: 100px;
+
+.sidebar-subMenu .searchbar-box{
+    min-width: 35px;
+    width: 35px;
+    padding: 8px;
     background-image: url('../img/icons/search.svg');
     background-repeat: no-repeat;
     background-size: 16px 16px;
     background-position: 10px 50%;
-    padding: 8px 5px 8px 35px;
     border: 1px solid #dedede;
     border-radius: 8px;
     font-size: 1.3rem;
     line-height: 1;
 }
+.sidebar-subMenu .searchbar-box::placeholder{
+    color: transparent;
+}
+.sidebar-subMenu.open .searchbar-box{
+    padding: 8px 5px 8px 35px;
+    min-width: 100px;
+    width: 100%;
+}
+.sidebar-subMenu.open .searchbar-box::placeholder{
+    color: #c4c4c4;
+}
 
 .sidebar-subMenu-listWrp{
     margin-top: 15px;
+    padding: 0 15px;
+    display: none;
+}
+.sidebar-subMenu-listWrp.active{
+    display: block;
 }
 
 .sidebar-subMenu-listTitle{
@@ -185,10 +241,21 @@ body.dark{
     font-weight: 500;
     padding: 0 8px;
     margin-bottom: 5px;
+    transition: all 0.3s;
+    display: none;
+}
+.sidebar-subMenu.open .sidebar-subMenu-listTitle{
+    display: block;
 }
 
+.sidebar-subMenu.open .sidebar-subMenu-list{
+    margin-top: 10px;
+}
+.sidebar-subMenu-list li{
+    margin-bottom: 4px;
+}
 .sidebar-wrp .sidebar-subMenu-listItem{
-    padding: 6px 20px 6px 8px;
+    padding: 6px 8px 6px 8px;
     font-size: 1.5rem;
     line-height: 1.2;
     word-break: break-all;
@@ -200,6 +267,29 @@ body.dark{
     flex-wrap: nowrap;
     position: relative;
     border-radius: 8px;
+    min-width: fit-content;
+    max-width: fit-content;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+.sidebar-wrp .sidebar-subMenu.open .sidebar-subMenu-listItem{
+    padding: 6px 20px 6px 8px;
+    min-width: 220px;
+    max-width: 220px;
+}
+
+.sidebar-subMenu-listItemName{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: none;
+    transition: all 0.3s linear;
+}
+
+.sidebar-subMenu.open .sidebar-subMenu-listItemName{
+    display: block;
 }
 
 .sidebar-subMenu-listItem img{
@@ -207,6 +297,64 @@ body.dark{
     height: 18px;
     filter: brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(17%) hue-rotate(69deg) brightness(100%) contrast(100%);
 }
+
+.dropdown-btn{
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    height: 10px;
+    width: 10px;
+    display: none;
+}
+.sidebar-subMenu.open .dropdown-btn{
+    display: block;
+}
+
+.sidebar-subMenu-listItem .dropdown-btn-icon{
+    width: 10px;
+    height: 10px;
+    transform: rotate(90deg);
+    transition: all 0.3s;
+}
+
+.sidebar-subMenu-listItem.active .dropdown-btn-icon{
+    transform: rotate(270deg);
+}
+
+.sidebar-wrp .sidebar-subMenu-Sublist{
+    padding: 0 0 0 36px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.sidebar-subMenu-SublistItem{
+    margin-top: 10px;
+    font-weight: 500;
+    color: #373737;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sidebar-subMenu-SublistItem:first-child {
+    margin-top: 5px;
+}
+.sidebar-subMenu-SublistItem a{
+    color: #373737;
+    text-decoration: none;
+    transition: all 0.3s;
+    max-width: 180px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+.sidebar-subMenu-SublistItem a:hover{
+    opacity: 0.8;
+}
+
 /* Sidebar submenu style end */
 .right-content{
   flex: 1;
@@ -245,6 +393,7 @@ body.dark .sidebar-wrp .mainMenu-listItem:hover .mainMenu-listItem-icon{
 body.dark .mainMenu-listItem:hover{
     background-color: #515050;
 }
-body.dark .mainMenu-listItem:hover .mainMenu-listItem-icon{
+body.dark .mainMenu-listItem:hover .mainMenu-listItem-icon,
+body.dark .mainMenu-listItem.active .mainMenu-listItem-icon{
     filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(13%) hue-rotate(81deg) brightness(106%) contrast(106%);
 }
