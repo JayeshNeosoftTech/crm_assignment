@@ -518,6 +518,10 @@ body.dark .sidebar-subMenu-SublistItem a{
 }
 
 @media screen and (max-width:767px) {
+    .main-layout{
+        height: 100%;
+    }
+
     .sidebar-wrp{
         box-shadow: none;
     }
