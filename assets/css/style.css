@@ -532,6 +532,7 @@ body.dark .sidebar-subMenu-SublistItem a{
         height: 100%;
         z-index: 1;
         border-right: 1px solid #dedede;
+        padding-bottom: 0;
     }
     .sidebar-subMenu.open {
         width: calc(100% - 70px);
