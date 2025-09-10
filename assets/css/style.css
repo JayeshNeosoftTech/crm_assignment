@@ -129,7 +129,7 @@ input[type="text"]:disabled{
 /* Profile menu style start */
 .sidebar-profileMenu{
     padding: 10px 10px;
-/*     margin-top: auto; */
+    margin-top: auto;
 }
 .sidebar-wrp .sidebar-profileMenu-item:hover img,
 .sidebar-wrp .sidebar-profileMenu-item.active img{
@@ -525,6 +525,7 @@ body.dark .sidebar-subMenu-SublistItem a{
     .sidebar-wrp{
         box-shadow: none;
         max-height: 100%;
+        height: 100vh;
     }
     .sidebar-subMenu{
         position: absolute;
@@ -550,7 +551,12 @@ body.dark .sidebar-subMenu-SublistItem a{
         flex: unset;
         margin-left: 62px;
     }
+
+    .sidebar-mainMenu{
+        height: 100%;
+    }
 }
+
 
 
 
