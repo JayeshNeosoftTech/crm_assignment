@@ -524,6 +524,7 @@ body.dark .sidebar-subMenu-SublistItem a{
 
     .sidebar-wrp{
         box-shadow: none;
+        max-height: 100%;
     }
     .sidebar-subMenu{
         position: absolute;
@@ -549,3 +550,4 @@ body.dark .sidebar-subMenu-SublistItem a{
         margin-left: 62px;
     }
 }
+
