@@ -129,7 +129,7 @@ input[type="text"]:disabled{
 /* Profile menu style start */
 .sidebar-profileMenu{
     padding: 10px 10px;
-    margin-top: auto;
+/*     margin-top: auto; */
 }
 .sidebar-wrp .sidebar-profileMenu-item:hover img,
 .sidebar-wrp .sidebar-profileMenu-item.active img{
@@ -551,6 +551,7 @@ body.dark .sidebar-subMenu-SublistItem a{
         margin-left: 62px;
     }
 }
+
 
 
 
