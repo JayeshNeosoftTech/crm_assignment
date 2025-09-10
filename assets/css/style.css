@@ -525,8 +525,6 @@ body.dark .sidebar-subMenu-SublistItem a{
     .sidebar-wrp{
         box-shadow: none;
         max-height: 100%;
-        min-height: 100vh;
-        height: 100%;
     }
     .sidebar-subMenu{
         position: absolute;
@@ -536,6 +534,7 @@ body.dark .sidebar-subMenu-SublistItem a{
         z-index: 1;
         border-right: 1px solid #dedede;
         padding-bottom: 0;
+        bottom: 0;
     }
     .sidebar-subMenu.open {
         width: calc(100% - 70px);
@@ -552,5 +551,6 @@ body.dark .sidebar-subMenu-SublistItem a{
         margin-left: 62px;
     }
 }
+
 
 
